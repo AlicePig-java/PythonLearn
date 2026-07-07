@@ -40,7 +40,30 @@
 # test_module.funa()
 # from test_module import funa as test_funa #从某模块导入函数，并用as关键字来
 # test_funa()
+#
+# from pack_01 import *
+# register.reg()
+# login.login()
+#
+# # 实现斐波那契数列
+# n1 = 1
+# n2 = 1
+# def feibonaqi(x):
+#     if x == 1 or x == 2:
+#         return 1
+#     else:
+#         return feibonaqi(x - 1) + feibonaqi(x - 2)
+# n = int(input("请输入你想查询的斐波那契项："))
+# print(feibonaqi(n))
+#
 
-from pack_01 import *
-register.reg()
-login.login()
+# 关于闭包函数 实现计数器
+def outer():
+    count = 0
+    def inner():
+        nonlocal count
+        count += 1
+        return count
+    return inner()
+
+print(outer())
