@@ -1,4 +1,3 @@
-from lib2to3.btm_matcher import type_repr
 
 print('hello world')
 print(False + 10)
