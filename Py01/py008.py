@@ -9,6 +9,7 @@
 # p.introduce()
 #
 #
+from gettext import dgettext
 from pprint import pprint
 from time import process_time_ns
 
@@ -91,21 +92,49 @@ from time import process_time_ns
 # grandson1 = grandson("sunzi",2)
 # print(grandson1.name)
 # print(grandson1.age)
+#
+# class Father:
+#     def __init__(self,name,age):
+#         self.name = name
+#         self.age = age
+#     def eat(self):
+#         print(f"{self.name}的eat方法")
+#     def sleep(self):
+#         print(f"{self.name}的sleep方法")
+#
+# class Son(Father):
+#     def study(self):
+#         print("son在学习")
+#     def eat(self):
+#         print("重写的子类吃饭方法")
+#     pass
+# son1 = Son("xiaomi",23)
+# son1.eat()
 
-class Father:
-    def __init__(self,name,age):
+#多台接口，可以gju传入的对象选择不同的方法
+class Animal:
+    def __init__(self,name):
         self.name = name
-        self.age = age
     def eat(self):
-        print(f"{self.name}的eat方法")
-    def sleep(self):
-        print(f"{self.name}的sleep方法")
+        print(f"{self.name}" + "在吃饭")
+class Cat(Animal):
+    def eat(self):
+        print(f"{self.name}"+"在吃猫粮")
 
-class Son(Father):
-    def study(self):
-        print("son在学习")
+class Dog(Animal):
     def eat(self):
-        print("重写的子类吃饭方法")
-    pass
-son1 = Son("xiaomi",23)
-son1.eat()
+        print(f"{self.name}" +"在吃猪饲料")
+
+class Mouse(Animal):
+    def hide(self):
+        print(f"{self.name}" + "躲起来")
+cat = Cat("cat")
+dog = Dog("dog")
+mouse = Mouse("mouse")
+# 会根据闯入的类型有没有重写方法，来调用对应的方法
+def test(Object):
+    Object.eat()
+test(cat)
+test(dog)
+test(mouse)
+mouse.hide()
