@@ -94,10 +94,40 @@
 #     f.close()
 
 # 读取二进制文件操作
-with open("/Users/Admin/Desktop/灰白.png","rb") as file :
-    text = file.read()
-    print(text)
+# with open("/Users/Admin/Desktop/灰白.png","rb") as file :
+#     text = file.read()
+#     print(text)
+#
+# # 将读取到内容写入
+# with open("test.png","wb") as f:
+#     f.write(text)
+#
+# name = "bingbing"
+# print(type(name))
 
-# 将读取到内容写入
-with open("test.png","wb") as f:
-    f.write(text)
+
+from collections.abc import Iterator,Iterable
+# name = "bingbing"
+# print(isinstance(name,Iterable))
+# print(isinstance(name,Iterator))
+# name1 = iter(name)
+# print(isinstance(name1,Iterator))
+#
+#
+#
+# # 自定义迭代器
+# class MyIterator:
+#     def __init__(self):
+#         self.x = 1
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         a = self.x
+#         if a > 10:
+#             raise StopIteration("迭代结束")
+#         self.x += 1
+#         print(a)
+# myItrator = MyIterator()
+# for i in myItrator:
+#     myItrator.__next__()
+#
