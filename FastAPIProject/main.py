@@ -76,7 +76,7 @@ async def get_news (id:int):
 
 
 # 依赖注入
-async def common_parameters(
+def common_parameters(
     skip: int = Query(default=0,ge=0),
     limit: int = Query(default=10, le=100)
 ):
@@ -84,6 +84,6 @@ async def common_parameters(
 
 @app.get("/news/list")
 async def get_news_list(
-    commons = Depends(common_parameters)
+    commons: dict = Depends(common_parameters)
 ):
     return commons

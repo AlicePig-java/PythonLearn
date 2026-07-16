@@ -1,10 +1,8 @@
-from tokenize import String
-
 from fastapi import FastAPI
 from datetime import datetime
 from sqlalchemy.ext.asyncio import  create_async_engine
 from sqlalchemy.orm import DeclarativeBase,Mapped, mapped_column
-from sqlalchemy import func, DateTime,Float
+from sqlalchemy import func, DateTime,Float,String
 app = FastAPI()
 
 # 1.创建异步引擎
@@ -26,14 +24,14 @@ class Book(Base):
     __tablename__ = "book"
 
     id:Mapped[int] = mapped_column(primary_key=True, comment="书籍id")
-    book_name: Mapped[str] = mapped_column(String(255), comment="书籍名称")
+    book_name: Mapped[str] = mapped_column(String(255), comment=" 书籍名称")
     author: Mapped[str] = mapped_column(String(255), comment="作者")
     price: Mapped[float] = mapped_column(Float, comment="价格")#可选，设置价格为浮点型
     publisher: Mapped[str] = mapped_column(String(255), comment="出版社")
 
 
 # 创建用户表
-class User(DeclarativeBase):
+class User(Base):
     __tablename__ = "user"
 
     id:Mapped[int] = mapped_column(primary_key=True, comment="用户id")
